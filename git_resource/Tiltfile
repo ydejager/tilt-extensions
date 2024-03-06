@@ -95,8 +95,6 @@ def git_checkout(repository_url, checkout_dir=None, unsafe_mode=False):
                     if checkout_cmd:
                         local(checkout_cmd, dir=checkout_dir, quiet=True)
                     local('git submodule update --init', dir=checkout_dir, quiet=True)
-                else:
-                    fail('git_checkout() failed: local modifications present and safe_mode is enabled')
 
             else:  # this isn't a git repo
                 fail('git_checkout() failed: existing checkout_dir is not a git repository')
